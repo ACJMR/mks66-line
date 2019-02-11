@@ -2,7 +2,6 @@ from display import *
 from draw import *
 
 screen = new_screen()
-"""
 color = [ 0, 255, 0 ]
 
 #display(screen)
@@ -28,16 +27,34 @@ draw_line(250,250,400,175,screen,color) #octant 8
 draw_line(250,250,100,325,screen,color) #octant 4
 draw_line(250,250,325,100,screen,color) #octant 7
 draw_line(250,250,175,400,screen,color) #octant 3
-"""
-#display(screen)
 
-R = 128
+display(screen)
+"""
+R = 256
 G = 128
 B = 0
-
+i = 0
 while i < 500:
+    R = (R + 10) % 256
+    G = (G + 10) % 256
+    B = (B + 10) % 256
     color = [R,G,B]
     draw_line(i,500, 500-i, 0,screen,color)
-    i+= 10
+    i+= 2
+    color = [B,R,G]
+    draw_line(500,i,0,500-i,screen,color)
+    i+= 2
+p = 0
+while p < 250:
+    color = [R,0,0]
+    draw_line(p,p,p,500-p,screen,color)
+    draw_line(p,p,500-p,p,screen,color)
+    color = [0,0,B]
+    draw_line(500-p,p,500-p,500-p,screen,color)
+    draw_line(p,500-p,500-p,500-p,screen,color)
+    p += 25
+    R -= 15
+    B -= 15
+"""
 
 save_extension(screen, 'img.png')
