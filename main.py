@@ -29,4 +29,15 @@ draw_line(250,250,100,325,screen,color) #octant 4
 draw_line(250,250,325,100,screen,color) #octant 7
 draw_line(250,250,175,400,screen,color) #octant 3
 """
+#display(screen)
+
+R = 128
+G = 128
+B = 0
+
+while i < 500:
+    color = [R,G,B]
+    draw_line(i,500, 500-i, 0,screen,color)
+    i+= 10
+
 save_extension(screen, 'img.png')
